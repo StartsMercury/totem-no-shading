@@ -3,7 +3,7 @@
 	"id": "totem-no-shading",
 	"version": "${version}",
 	"name": "Totem No Shading",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Removes directional darkening when holding totems of undying",
 	"authors": [
 		"StartsMercury"
 	],
