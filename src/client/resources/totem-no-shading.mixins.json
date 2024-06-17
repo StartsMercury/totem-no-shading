@@ -3,7 +3,7 @@
 	"package": "io.github.startsmercury.totem_no_shading.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-      "io.github.startsmercury.totem_no_shading.mixin.client.ExampleClientMixin"
+		"ItemRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
