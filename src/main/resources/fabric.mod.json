@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/StartsMercury/totem-no-shading"
 	},
 	"license": "MIT",
 	"icon": "assets/totem-no-shading/icon.png",
