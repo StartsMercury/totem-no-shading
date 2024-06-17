@@ -13,21 +13,14 @@
 	},
 	"license": "MIT",
 	"icon": "assets/totem-no-shading/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"io.github.startsmercury.totem_no_shading.impl.client.TotemNoShading"
-		],
 		"client": [
-			"io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingClient"
+			"io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingImpl::init"
 		]
 	},
 	"mixins": [
-		"totem-no-shading.mixins.json",
-		{
-			"config": "totem-no-shading.client.mixins.json",
-			"environment": "client"
-		}
+		"totem-no-shading.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15",

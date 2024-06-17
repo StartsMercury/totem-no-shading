@@ -1,4 +1,4 @@
-package io.github.startsmercury.totem_no_shading.impl.client.mixin.client;
+package io.github.startsmercury.totem_no_shading.mixin.client;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
