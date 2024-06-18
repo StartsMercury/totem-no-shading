@@ -1,11 +1,14 @@
 {
-	"required": true,
-	"package": "io.github.startsmercury.totem_no_shading.mixin.client",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-		"ItemRendererMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+  "required": true,
+  "package": "io.github.startsmercury.totem_no_shading.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "GameRendererMixin",
+    "ItemBlockRenderTypesMixin",
+    "ShaderInstance$1Mixin",
+    "ShaderInstanceMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

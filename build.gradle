@@ -19,6 +19,7 @@ repositories {
 }
 
 loom {
+	accessWidenerPath = file("src/client/resources/simply-no-shading.accesswidener")
     splitEnvironmentSourceSets()
 
 	mods {
@@ -27,7 +28,6 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-
 }
 
 dependencies {
