@@ -25,9 +25,9 @@
 	"accessWidener": "simply-no-shading.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.15",
-		"java": ">=21"
+		"java": ">=${version_java}"
 	},
 	"recommends": {
-		"minecraft": "1.21"
+		"minecraft": "${version_minecraft}"
 	}
 }
