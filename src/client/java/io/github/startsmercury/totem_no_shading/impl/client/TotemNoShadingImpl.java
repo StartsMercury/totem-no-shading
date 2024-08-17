@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.TriState;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Unique;
@@ -26,7 +27,7 @@ public class TotemNoShadingImpl {
 			RenderType.CompositeState compositeState = RenderType.CompositeState
 				.builder()
 				.setShaderState(RENDERTYPE_ENTITY_TRANSLUCENT_CULL_SHADER)
-				.setTextureState(new RenderStateShard.TextureStateShard(resourceLocation, false, false))
+				.setTextureState(new RenderStateShard.TextureStateShard(resourceLocation, TriState.FALSE, false))
 				.setTransparencyState(RenderStateShard.TRANSLUCENT_TRANSPARENCY)
 				.setLightmapState(RenderStateShard.LIGHTMAP)
 				.setOverlayState(RenderStateShard.OVERLAY)
