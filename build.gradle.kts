@@ -41,7 +41,7 @@ repositories {
 dependencies {
     minecraft("com.mojang:minecraft:${Constants.VERSION_MINECRAFT}")
     mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:0.15.11")
+    modImplementation("net.fabricmc:fabric-loader:0.16.2")
 }
 
 tasks.withType<ProcessResources> {
