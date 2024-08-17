@@ -2,9 +2,7 @@ package io.github.startsmercury.totem_no_shading.mixin.client;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.shaders.Program;
-import com.mojang.blaze3d.vertex.VertexFormat;
 import io.github.startsmercury.totem_no_shading.impl.client.ResourceProviderWrapper;
-import io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingImpl;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.server.packs.resources.ResourceProvider;
 import org.objectweb.asm.Opcodes;
