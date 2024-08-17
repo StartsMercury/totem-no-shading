@@ -47,6 +47,7 @@ public class TotemNoShadingImpl {
 	@SuppressWarnings("deprecation")
 	private static final RenderType TRANSLUCENT_CULL_BLOCK_SHEET = entityTranslucentCull(TextureAtlas.LOCATION_BLOCKS);
 
+	@Nullable
 	public static ShaderInstance getRendertypeEntityTranslucentCullShader() {
 		return rendertypeEntityTranslucentCullShader;
 	}
