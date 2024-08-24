@@ -1,65 +1,35 @@
 package io.github.startsmercury.totem_no_shading.impl.client;
 
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.VertexFormat;
-import net.minecraft.Util;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ShaderInstance;
-import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.renderer.ShaderProgram;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.TriState;
-import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
 
 public class TotemNoShadingImpl {
-	@ApiStatus.Internal
-	public static @Nullable ShaderInstance rendertypeEntityTranslucentCullShader;
+	public static final String CUSTOM_SHADER_SUFFIX = "_no_shading";
 
-	public static final RenderStateShard.ShaderStateShard RENDERTYPE_ENTITY_TRANSLUCENT_CULL_SHADER =
-		new RenderStateShard.ShaderStateShard(TotemNoShadingImpl::getRendertypeEntityTranslucentCullShader);
+	public static final ResourceLocation TARGET_VSH_SHADER =
+		ResourceLocation.withDefaultNamespace(
+		"shaders/core/rendertype_item_entity_translucent_cull.vsh"
+		);
 
-	private static final Function<ResourceLocation, RenderType> ENTITY_TRANSLUCENT_CULL = Util.memoize(
-		resourceLocation -> {
-			RenderType.CompositeState compositeState = RenderType.CompositeState
-				.builder()
-				.setShaderState(RENDERTYPE_ENTITY_TRANSLUCENT_CULL_SHADER)
-				.setTextureState(new RenderStateShard.TextureStateShard(resourceLocation, TriState.FALSE, false))
-				.setTransparencyState(RenderStateShard.TRANSLUCENT_TRANSPARENCY)
-				.setLightmapState(RenderStateShard.LIGHTMAP)
-				.setOverlayState(RenderStateShard.OVERLAY)
-				.createCompositeState(true);
-			return RenderType.create(
-				"entity_translucent_cull",
-				DefaultVertexFormat.NEW_ENTITY,
-				VertexFormat.Mode.QUADS,
-				1536,
-				true,
-				true,
-				compositeState
-			);
-		}
-	);
+	public static ShaderProgram RENDERTYPE_ITEM_ENTITY_TRANSLUCENT_CULL;
 
-	@SuppressWarnings("deprecation")
-	private static final RenderType TRANSLUCENT_CULL_BLOCK_SHEET = entityTranslucentCull(TextureAtlas.LOCATION_BLOCKS);
+	public static RenderStateShard.ShaderStateShard RENDERTYPE_ITEM_ENTITY_TRANSLUCENT_CULL_SHADER;
 
-	@Nullable
-	public static ShaderInstance getRendertypeEntityTranslucentCullShader() {
-		return rendertypeEntityTranslucentCullShader;
+	public static Function<ResourceLocation, RenderType> ITEM_ENTITY_TRANSLUCENT_CULL;
+
+	public static RenderType itemEntityTranslucentCull(
+		final ResourceLocation resourceLocation
+	) {
+		return ITEM_ENTITY_TRANSLUCENT_CULL.apply(resourceLocation);
 	}
 
-	public static RenderType entityTranslucentCull(final ResourceLocation resourceLocation) {
-		return ENTITY_TRANSLUCENT_CULL.apply(resourceLocation);
-	}
+	public static RenderType TRANSLUCENT_CULL_BLOCK_SHEET;
 
-	public static RenderType translucentCullBlockSheet() {
+	public static RenderType translucentItemSheet() {
 		return TRANSLUCENT_CULL_BLOCK_SHEET;
-	}
-
-	public static void init() {
-		System.out.println("Hello, world!");
 	}
 }

@@ -15,9 +15,6 @@
 	"icon": "assets/totem-no-shading/icon.png",
 	"environment": "client",
 	"entrypoints": {
-		"client": [
-			"io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingImpl::init"
-		]
 	},
 	"mixins": [
 		"totem-no-shading.mixins.json"

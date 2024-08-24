@@ -16,7 +16,6 @@ public class ItemBlockRenderTypesMixin {
 	@ModifyReturnValue(at = @At("RETURN"), method = """
 	    getRenderType(\
 	        Lnet/minecraft/world/item/ItemStack;\
-	        Z\
 	    )Lnet/minecraft/client/renderer/RenderType;\
 	""")
 	private static RenderType inspect(
@@ -24,8 +23,8 @@ public class ItemBlockRenderTypesMixin {
 		final @Local(ordinal = 0, argsOnly = true) ItemStack itemStack
     ) {
 		if (itemStack.is(Items.TOTEM_OF_UNDYING)) {
-			if (original == Sheets.translucentCullBlockSheet()) {
-				return TotemNoShadingImpl.translucentCullBlockSheet();
+			if (original == Sheets.translucentItemSheet()) {
+				return TotemNoShadingImpl.translucentItemSheet();
 			}
 		}
 		return original;
