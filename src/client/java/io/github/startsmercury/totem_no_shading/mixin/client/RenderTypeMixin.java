@@ -14,7 +14,7 @@ public class RenderTypeMixin {
     static {
         TotemNoShadingImpl.ITEM_ENTITY_TRANSLUCENT_CULL = Util.memoize(
             resourceLocation -> {
-                RenderType.CompositeState compositeState = RenderType.CompositeState
+                final var compositeState = RenderType.CompositeState
                     .builder()
                     .setShaderState(
                         TotemNoShadingImpl.RENDERTYPE_ITEM_ENTITY_TRANSLUCENT_CULL_SHADER

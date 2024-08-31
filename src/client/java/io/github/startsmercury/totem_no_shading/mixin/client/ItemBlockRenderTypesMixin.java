@@ -14,9 +14,9 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ItemBlockRenderTypes.class)
 public class ItemBlockRenderTypesMixin {
 	@ModifyReturnValue(at = @At("RETURN"), method = """
-	    getRenderType(\
-	        Lnet/minecraft/world/item/ItemStack;\
-	    )Lnet/minecraft/client/renderer/RenderType;\
+	    getRenderType (                             \
+	        Lnet/minecraft/world/item/ItemStack;    \
+	    ) Lnet/minecraft/client/renderer/RenderType;\
 	""")
 	private static RenderType inspect(
 		final RenderType original,

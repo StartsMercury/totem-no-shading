@@ -19,11 +19,20 @@ import java.util.Map;
 @Mixin(ShaderManager.class)
 public abstract class ShaderManagerMixin {
     @Inject(
-        method = "loadShader",
+        method = """
+            loadShader (                                         \
+                Lnet/minecraft/resources/ResourceLocation;       \
+                Lnet/minecraft/server/packs/resources/Resource;  \
+                Lcom/mojang/blaze3d/shaders/CompiledShader$Type; \
+                Ljava/util/Map;                                  \
+                Lcom/google/common/collect/ImmutableMap$Builder; \
+            ) V                                                  \
+        """,
         at = @At(value = "INVOKE", shift = At.Shift.AFTER, remap = false, target = """
-            Lcom/google/common/collect/ImmutableMap$Builder;put(\
-                Ljava/lang/Object;Ljava/lang/Object;\
-            )Lcom/google/common/collect/ImmutableMap$Builder;\
+            Lcom/google/common/collect/ImmutableMap$Builder;   \
+            put (                                              \
+                Ljava/lang/Object;Ljava/lang/Object;           \
+            ) Lcom/google/common/collect/ImmutableMap$Builder; \
         """)
     )
     private static void loadCustomShader(

@@ -25,12 +25,11 @@ public abstract class CoreShadersMixin {
             value = "INVOKE",
             shift = At.Shift.AFTER,
             target = """
-                Lnet/minecraft/client/renderer/CoreShaders;\
-                register(\
-                    Ljava/lang/String;\
-                    Lcom/mojang/blaze3d/vertex/VertexFormat;\
-                )\
-                Lnet/minecraft/client/renderer/ShaderProgram;\
+                Lnet/minecraft/client/renderer/CoreShaders;     \
+                register (                                      \
+                    Ljava/lang/String;                          \
+                    Lcom/mojang/blaze3d/vertex/VertexFormat;    \
+                ) Lnet/minecraft/client/renderer/ShaderProgram; \
             """,
             ordinal = 0
         ),

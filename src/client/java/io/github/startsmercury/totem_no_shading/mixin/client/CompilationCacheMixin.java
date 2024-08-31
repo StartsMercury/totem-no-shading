@@ -11,10 +11,15 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(targets = "net.minecraft.client.renderer.ShaderManager$CompilationCache")
 public class CompilationCacheMixin {
     @ModifyExpressionValue(
-            method = "compileProgram",
-            at = @At(value = "INVOKE", target = """
-            Lnet/minecraft/client/renderer/ShaderProgram;configId()\
-            Lnet/minecraft/resources/ResourceLocation;\
+        method = """
+            compileProgram (                                        \
+                Lnet/minecraft/client/renderer/ShaderProgram;       \
+            ) Lnet/minecraft/client/renderer/CompiledShaderProgram; \
+        """,
+        at = @At(value = "INVOKE", target = """
+            Lnet/minecraft/client/renderer/ShaderProgram; \
+            configId (                                    \
+            ) Lnet/minecraft/resources/ResourceLocation;  \
         """)
     )
     private ResourceLocation changeProgramName(
@@ -33,11 +38,16 @@ public class CompilationCacheMixin {
     }
 
     @ModifyExpressionValue(
-        method = "compileProgram",
+        method = """
+            compileProgram (                                        \
+                Lnet/minecraft/client/renderer/ShaderProgram;       \
+            ) Lnet/minecraft/client/renderer/CompiledShaderProgram; \
+        """,
         at = @At(value = "INVOKE", target = """
-        Lnet/minecraft/client/renderer/ShaderProgramConfig;vertex()\
-        Lnet/minecraft/resources/ResourceLocation;\
-    """)
+            Lnet/minecraft/client/renderer/ShaderProgramConfig; \
+            vertex (                                            \
+            ) Lnet/minecraft/resources/ResourceLocation;        \
+        """)
     )
     private ResourceLocation changeVertexProgramName(
         final ResourceLocation configId,
