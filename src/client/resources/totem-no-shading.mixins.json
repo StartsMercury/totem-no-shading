@@ -3,6 +3,7 @@
   "package": "io.github.startsmercury.totem_no_shading.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "CompilationCacheMixin",
     "CoreShadersMixin",
     "ItemBlockRenderTypesMixin",
     "RenderStateShardMixin",

@@ -1,10 +1,7 @@
 package io.github.startsmercury.totem_no_shading.mixin.client;
 
 import com.google.common.collect.ImmutableMap;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.llamalad7.mixinextras.sugar.Share;
-import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.mojang.blaze3d.shaders.CompiledShader;
 import io.github.startsmercury.totem_no_shading.impl.client.NoShadingGlslPreprocessor;
 import io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingImpl;
@@ -21,48 +18,6 @@ import java.util.Map;
 
 @Mixin(ShaderManager.class)
 public abstract class ShaderManagerMixin {
-    @ModifyExpressionValue(
-        method = "compileProgram",
-        at = @At(value = "INVOKE", target = """
-            Lnet/minecraft/client/renderer/ShaderProgram;configId()\
-            Lnet/minecraft/resources/ResourceLocation;\
-        """)
-    )
-    private ResourceLocation changeProgramName(
-        final ResourceLocation configId,
-        final @Share("noShading") LocalBooleanRef noShading
-    ) {
-        if (configId.getPath().endsWith(TotemNoShadingImpl.CUSTOM_SHADER_SUFFIX)) {
-            noShading.set(true);
-            return configId.withPath(path -> path.substring(
-                0,
-                path.length() - TotemNoShadingImpl.CUSTOM_SHADER_SUFFIX.length()
-            ));
-        } else {
-            return configId;
-        }
-    }
-
-    @ModifyExpressionValue(
-        method = "compileProgram",
-        at = @At(value = "INVOKE", target = """
-            Lnet/minecraft/client/renderer/ShaderProgramConfig;vertex()\
-            Lnet/minecraft/resources/ResourceLocation;\
-        """)
-    )
-    private ResourceLocation changeVertexProgramName(
-        final ResourceLocation configId,
-        final @Share("noShading") LocalBooleanRef noShading
-    ) {
-        if (noShading.get()) {
-            return configId.withPath(
-                path -> path + TotemNoShadingImpl.CUSTOM_SHADER_SUFFIX
-            );
-        } else {
-            return configId;
-        }
-    }
-
     @Inject(
         method = "loadShader",
         at = @At(value = "INVOKE", shift = At.Shift.AFTER, remap = false, target = """
