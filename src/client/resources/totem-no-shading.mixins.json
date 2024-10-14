@@ -3,10 +3,11 @@
   "package": "io.github.startsmercury.totem_no_shading.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "GameRendererMixin",
-    "ItemBlockRenderTypesMixin",
-    "ShaderInstance$1Mixin",
-    "ShaderInstanceMixin"
+    "iris.IrisConfigMixin",
+    "minecraft.GameRendererMixin",
+    "minecraft.ItemBlockRenderTypesMixin",
+    "minecraft.ShaderInstance$1Mixin",
+    "minecraft.ShaderInstanceMixin"
   ],
   "injectors": {
     "defaultRequire": 1
