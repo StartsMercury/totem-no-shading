@@ -1,4 +1,4 @@
-package io.github.startsmercury.totem_no_shading.mixin.client;
+package io.github.startsmercury.totem_no_shading.mixin.client.minecraft;
 
 import com.google.common.collect.ImmutableMap;
 import com.llamalad7.mixinextras.sugar.Local;

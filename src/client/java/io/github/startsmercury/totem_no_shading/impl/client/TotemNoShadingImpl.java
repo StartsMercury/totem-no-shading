@@ -8,6 +8,16 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Function;
 
 public class TotemNoShadingImpl {
+	private static boolean enabled;
+
+	public static boolean isEnabled() {
+		return TotemNoShadingImpl.enabled;
+	}
+
+	public static void setEnabled(final boolean enabled) {
+		TotemNoShadingImpl.enabled = enabled;
+	}
+
 	public static final String CUSTOM_SHADER_SUFFIX = "_no_shading";
 
 	public static final ResourceLocation TARGET_VSH_SHADER =

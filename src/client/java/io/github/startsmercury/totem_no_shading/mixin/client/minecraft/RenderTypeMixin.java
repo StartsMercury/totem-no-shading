@@ -1,4 +1,4 @@
-package io.github.startsmercury.totem_no_shading.mixin.client;
+package io.github.startsmercury.totem_no_shading.mixin.client.minecraft;
 
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;

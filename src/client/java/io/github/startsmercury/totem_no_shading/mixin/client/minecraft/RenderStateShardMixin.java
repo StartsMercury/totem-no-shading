@@ -1,4 +1,4 @@
-package io.github.startsmercury.totem_no_shading.mixin.client;
+package io.github.startsmercury.totem_no_shading.mixin.client.minecraft;
 
 import io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingImpl;
 import net.minecraft.client.renderer.RenderStateShard;

@@ -1,4 +1,4 @@
-package io.github.startsmercury.totem_no_shading.mixin.client;
+package io.github.startsmercury.totem_no_shading.mixin.client.minecraft;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
@@ -22,11 +22,14 @@ public class ItemBlockRenderTypesMixin {
 		final RenderType original,
 		final @Local(ordinal = 0, argsOnly = true) ItemStack itemStack
     ) {
-		if (itemStack.is(Items.TOTEM_OF_UNDYING)) {
-			if (original == Sheets.translucentItemSheet()) {
-				return TotemNoShadingImpl.translucentItemSheet();
-			}
+		if (
+			TotemNoShadingImpl.isEnabled()
+				&& itemStack.is(Items.TOTEM_OF_UNDYING)
+				&& original == Sheets.translucentItemSheet()
+		) {
+			return TotemNoShadingImpl.translucentItemSheet();
+		} else {
+			return original;
 		}
-		return original;
 	}
 }
