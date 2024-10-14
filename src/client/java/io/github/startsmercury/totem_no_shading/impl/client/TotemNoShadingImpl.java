@@ -10,11 +10,20 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Unique;
 
 import java.util.function.Function;
 
 public class TotemNoShadingImpl {
+	private static boolean enabled;
+
+	public static boolean isEnabled() {
+		return TotemNoShadingImpl.enabled;
+	}
+
+	public static void setEnabled(final boolean enabled) {
+		TotemNoShadingImpl.enabled = enabled;
+	}
+
 	@ApiStatus.Internal
 	public static @Nullable ShaderInstance rendertypeEntityTranslucentCullShader;
 

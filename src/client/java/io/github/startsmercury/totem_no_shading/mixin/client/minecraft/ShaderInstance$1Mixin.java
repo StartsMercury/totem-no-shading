@@ -1,7 +1,6 @@
-package io.github.startsmercury.totem_no_shading.mixin.client;
+package io.github.startsmercury.totem_no_shading.mixin.client.minecraft;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.llamalad7.mixinextras.sugar.Local;
 import io.github.startsmercury.totem_no_shading.impl.client.ResourceProviderWrapper;
 import net.minecraft.server.packs.resources.ResourceProvider;
 import net.minecraft.util.StringUtil;

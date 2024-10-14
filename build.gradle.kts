@@ -35,13 +35,21 @@ loom {
 }
 
 repositories {
-
+    maven {
+        name = "Modrinth Maven"
+        url = uri("https://api.modrinth.com/maven")
+        content {
+            includeGroup("maven.modrinth")
+        }
+    }
 }
 
 dependencies {
     minecraft("com.mojang:minecraft:${Constants.VERSION_MINECRAFT}")
     mappings(loom.officialMojangMappings())
     modImplementation("net.fabricmc:fabric-loader:0.16.2")
+
+    modCompileOnly("maven.modrinth:iris:1.8.0-beta.4+1.21-fabric")
 }
 
 tasks.withType<ProcessResources> {

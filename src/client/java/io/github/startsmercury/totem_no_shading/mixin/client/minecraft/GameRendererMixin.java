@@ -1,4 +1,4 @@
-package io.github.startsmercury.totem_no_shading.mixin.client;
+package io.github.startsmercury.totem_no_shading.mixin.client.minecraft;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
@@ -8,9 +8,7 @@ import io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingImpl;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.server.packs.resources.ResourceProvider;
-import org.jetbrains.annotations.ApiStatus;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Slice;
