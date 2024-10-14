@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Function;
 
 public class TotemNoShadingImpl {
-	private static boolean enabled;
+	private static boolean enabled = true;
 
 	public static boolean isEnabled() {
 		return TotemNoShadingImpl.enabled;
