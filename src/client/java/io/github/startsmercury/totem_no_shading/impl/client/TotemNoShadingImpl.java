@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Function;
 
 public class TotemNoShadingImpl {
-	private static boolean enabled;
+	private static boolean enabled = true;
 
 	public static boolean isEnabled() {
 		return TotemNoShadingImpl.enabled;
