@@ -6,7 +6,7 @@ object Constants {
 }
 
 plugins {
-    id("fabric-loom") version "1.7.4"
+    id("fabric-loom") version "1.8.10"
 }
 
 base {
