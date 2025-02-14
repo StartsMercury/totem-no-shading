@@ -1,8 +1,7 @@
 package io.github.startsmercury.totem_no_shading.impl.client;
 
-import net.minecraft.client.renderer.RenderStateShard;
+import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ShaderProgram;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Function;
@@ -25,9 +24,7 @@ public class TotemNoShadingImpl {
 		"shaders/core/rendertype_item_entity_translucent_cull.vsh"
 		);
 
-	public static ShaderProgram RENDERTYPE_ITEM_ENTITY_TRANSLUCENT_CULL;
-
-	public static RenderStateShard.ShaderStateShard RENDERTYPE_ITEM_ENTITY_TRANSLUCENT_CULL_SHADER;
+	public static RenderPipeline RENDERPIPELINE_ITEM_ENTITY_TRANSLUCENT_CULL;
 
 	public static Function<ResourceLocation, RenderType> ITEM_ENTITY_TRANSLUCENT_CULL;
 

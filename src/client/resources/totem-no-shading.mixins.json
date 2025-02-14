@@ -4,10 +4,10 @@
   "compatibilityLevel": "JAVA_21",
   "client": [
     "iris.IrisConfigMixin",
-    "minecraft.CompilationCacheMixin",
-    "minecraft.CoreShadersMixin",
     "minecraft.ItemBlockRenderTypesMixin",
-    "minecraft.RenderStateShardMixin",
+    "minecraft.RenderPipelinesMixin",
+    "minecraft.RenderStateShardAccessor",
+    "minecraft.RenderType$CompositeRenderTypeAccessor",
     "minecraft.RenderTypeMixin",
     "minecraft.ShaderManagerMixin",
     "minecraft.SheetsMixin"
