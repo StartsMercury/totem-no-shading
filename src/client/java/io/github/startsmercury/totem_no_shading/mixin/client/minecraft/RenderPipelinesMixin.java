@@ -33,7 +33,8 @@ public abstract class RenderPipelinesMixin {
         slice = @Slice(from = @At(
             value = "CONSTANT",
             args = "stringValue=pipeline/item_entity_translucent_cull"
-        ))
+        )),
+	remap = false
     )
     private static RenderPipeline createCustom(
         final RenderPipeline.Builder builder,
