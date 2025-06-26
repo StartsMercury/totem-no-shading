@@ -49,7 +49,7 @@ dependencies {
     mappings(loom.officialMojangMappings())
     modImplementation("net.fabricmc:fabric-loader:0.16.14")
 
-    modCompileOnly("maven.modrinth:iris:1.8.11+1.21.5-fabric")
+    modCompileOnly("maven.modrinth:iris:1.9.0+1.21.6-fabric")
 }
 
 tasks.withType<ProcessResources> {
