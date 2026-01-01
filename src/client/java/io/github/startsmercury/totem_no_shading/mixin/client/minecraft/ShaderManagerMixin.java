@@ -5,10 +5,10 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.shaders.ShaderType;
 import io.github.startsmercury.totem_no_shading.impl.client.NoShadingGlslPreprocessor;
 import io.github.startsmercury.totem_no_shading.impl.client.TotemNoShadingImpl;
-import net.minecraft.FileUtil;
 import net.minecraft.client.renderer.ShaderManager;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.util.FileUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,7 +21,7 @@ public abstract class ShaderManagerMixin {
     @Inject(
         method = """
             loadShader (                                         \
-                Lnet/minecraft/resources/ResourceLocation;       \
+                Lnet/minecraft/resources/Identifier;             \
                 Lnet/minecraft/server/packs/resources/Resource;  \
                 Lcom/mojang/blaze3d/shaders/ShaderType;          \
                 Ljava/util/Map;                                  \
@@ -37,14 +37,14 @@ public abstract class ShaderManagerMixin {
     )
     private static void loadCustomShader(
         final CallbackInfo callback,
-        final @Local(ordinal = 0, argsOnly = true) ResourceLocation resourceLocation,
+        final @Local(ordinal = 0, argsOnly = true) Identifier resourceLocation,
         final @Local(ordinal = 0, argsOnly = true) ShaderType shaderType,
-        final @Local(ordinal = 0, argsOnly = true) Map<ResourceLocation, Resource> map,
+        final @Local(ordinal = 0, argsOnly = true) Map<Identifier, Resource> map,
         final @Local(ordinal = 0, argsOnly = true) ImmutableMap.Builder<
             ShaderManager.ShaderSourceKey,
             String
         > builder,
-        final @Local(ordinal = 1) ResourceLocation resourceLocation2,
+        final @Local(ordinal = 1) Identifier resourceLocation2,
         final @Local(ordinal = 0) String string
     ) {
         if (!TotemNoShadingImpl.TARGET_VSH_SHADER.equals(resourceLocation)) {

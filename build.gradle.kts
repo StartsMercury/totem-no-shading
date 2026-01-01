@@ -2,7 +2,7 @@ object Constants {
     const val VERSION = "0.1.1"
 
     const val VERSION_JAVA = 21
-    const val VERSION_MINECRAFT = "1.21.10"
+    const val VERSION_MINECRAFT = "1.21.11"
 }
 
 plugins {
@@ -24,7 +24,7 @@ java {
 }
 
 loom {
-    accessWidenerPath = file("src/client/resources/simply-no-shading.accesswidener")
+    accessWidenerPath = file("src/client/resources/totem-no-shading.accesswidener")
     runtimeOnlyLog4j = true
     splitEnvironmentSourceSets()
 

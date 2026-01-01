@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.Mixin;
 public class SheetsMixin {
     static {
         @SuppressWarnings("deprecation")
-        final var textureAtlas = TextureAtlas.LOCATION_BLOCKS;
-        TotemNoShadingImpl.TRANSLUCENT_CULL_BLOCK_SHEET =
+        final var textureAtlas = TextureAtlas.LOCATION_ITEMS;
+        TotemNoShadingImpl.TRANSLUCENT_ITEM_SHEET =
             TotemNoShadingImpl.itemEntityTranslucentCull(textureAtlas);
     }
 }
