@@ -13,15 +13,14 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(BlockModelWrapper.class)
 public class BlockModelWrapperMixin {
-    @ModifyReturnValue(method = "method_76559", at = @At("RETURN"))
+    @ModifyReturnValue(method = "lambda$static$0", at = @At("RETURN"))
     private static RenderType a(
         final RenderType original,
 		final @Local(ordinal = 0, argsOnly = true) ItemStack itemStack
     ) {
-		if (
-            TotemNoShadingImpl.isEnabled()
-                && itemStack.is(Items.TOTEM_OF_UNDYING)
-                && original == Sheets.translucentItemSheet()
+		if (original == Sheets.translucentItemSheet()
+            && TotemNoShadingImpl.isEnabled()
+            && itemStack.is(Items.TOTEM_OF_UNDYING)
 		) {
 			return TotemNoShadingImpl.translucentItemSheet();
 		} else {

@@ -1,4 +1,4 @@
-accessWidener v2 named
+accessWidener v2 official
 
 accessible field  net/minecraft/client/renderer/ShaderManager LOGGER Lorg/slf4j/Logger;
 accessible class  net/minecraft/client/renderer/ShaderManager$ShaderSourceKey

@@ -1,9 +1,8 @@
 {
   "required": true,
   "package": "io.github.startsmercury.totem_no_shading.mixin.client",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "client": [
-    "iris.IrisConfigMixin",
     "minecraft.BlockModelWrapperMixin",
     "minecraft.RenderPipelinesMixin",
     "minecraft.RenderTypesMixin",

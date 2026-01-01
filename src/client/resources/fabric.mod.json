@@ -21,7 +21,7 @@
 	],
 	"accessWidener": "totem-no-shading.accesswidener",
 	"depends": {
-		"fabricloader": ">=0.15",
+		"fabricloader": ">=0.18",
 		"java": ">=${version_java}"
 	},
 	"recommends": {

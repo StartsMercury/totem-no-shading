@@ -19,15 +19,13 @@ import java.util.Map;
 @Mixin(ShaderManager.class)
 public abstract class ShaderManagerMixin {
     @Inject(
-        method = """
-            loadShader (                                         \
-                Lnet/minecraft/resources/Identifier;             \
-                Lnet/minecraft/server/packs/resources/Resource;  \
-                Lcom/mojang/blaze3d/shaders/ShaderType;          \
-                Ljava/util/Map;                                  \
-                Lcom/google/common/collect/ImmutableMap$Builder; \
-            ) V                                                  \
-        """,
+        method = "loadShader(" +
+            "Lnet/minecraft/resources/Identifier;" +
+            "Lnet/minecraft/server/packs/resources/Resource;" +
+            "Lcom/mojang/blaze3d/shaders/ShaderType;" +
+            "Ljava/util/Map;" +
+            "Lcom/google/common/collect/ImmutableMap$Builder;" +
+        ")V",
         at = @At(value = "INVOKE", shift = At.Shift.AFTER, remap = false, target = """
             Lcom/google/common/collect/ImmutableMap$Builder;   \
             put (                                              \
@@ -37,33 +35,33 @@ public abstract class ShaderManagerMixin {
     )
     private static void loadCustomShader(
         final CallbackInfo callback,
-        final @Local(ordinal = 0, argsOnly = true) Identifier resourceLocation,
-        final @Local(ordinal = 0, argsOnly = true) ShaderType shaderType,
-        final @Local(ordinal = 0, argsOnly = true) Map<Identifier, Resource> map,
+        final @Local(ordinal = 0, argsOnly = true) Identifier location,
+        final @Local(ordinal = 0, argsOnly = true) ShaderType type,
+        final @Local(ordinal = 0, argsOnly = true) Map<Identifier, Resource> files,
         final @Local(ordinal = 0, argsOnly = true) ImmutableMap.Builder<
             ShaderManager.ShaderSourceKey,
             String
-        > builder,
-        final @Local(ordinal = 1) Identifier resourceLocation2,
-        final @Local(ordinal = 0) String string
+        > output,
+        final @Local(name = "id") Identifier id,
+        final @Local(name = "source") String source
     ) {
-        if (!TotemNoShadingImpl.TARGET_VSH_SHADER.equals(resourceLocation)) {
+        if (!TotemNoShadingImpl.TARGET_VSH_SHADER.equals(location)) {
             return;
         }
 
-        final var glslPreprocessor = new NoShadingGlslPreprocessor(
-            resourceLocation.withPath(FileUtil::getFullResourcePath),
-            map
+        final var preprocessor = new NoShadingGlslPreprocessor(
+            location.withPath(FileUtil::getFullResourcePath),
+                files
         );
 
-        builder.put(
+        output.put(
             new ShaderManager.ShaderSourceKey(
-                resourceLocation2.withPath(
+                id.withPath(
                     path -> path + TotemNoShadingImpl.CUSTOM_SHADER_SUFFIX
                 ),
-                shaderType
+                type
             ),
-            String.join("", glslPreprocessor.process(string))
+            String.join("", preprocessor.process(source))
         );
     }
 }

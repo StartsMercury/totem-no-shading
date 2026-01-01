@@ -1,12 +1,12 @@
 object Constants {
     const val VERSION = "0.1.1"
 
-    const val VERSION_JAVA = 21
-    const val VERSION_MINECRAFT = "1.21.11"
+    const val VERSION_JAVA = 25
+    const val VERSION_MINECRAFT = "26.1-snapshot-1"
 }
 
 plugins {
-    id("net.fabricmc.fabric-loom-remap") version "1.14.10"
+    id("net.fabricmc.fabric-loom") version "1.14.10"
 }
 
 base {
@@ -46,17 +46,16 @@ repositories {
 
 dependencies {
     minecraft("com.mojang:minecraft:${Constants.VERSION_MINECRAFT}")
-    mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:0.18.4")
+    implementation("net.fabricmc:fabric-loader:0.18.4")
 
-    modCompileOnly("maven.modrinth:iris:1.10.4+1.21.11-fabric")
+    // compileOnly("maven.modrinth:iris:1.10.4+1.21.11-fabric")
 }
 
 tasks.withType<ProcessResources> {
     val data = mapOf(
         "version" to Constants.VERSION,
         "version_java" to Constants.VERSION_JAVA,
-        "version_minecraft" to Constants.VERSION_MINECRAFT,
+        "version_minecraft" to "26.1-alpha.1",
     )
 
     inputs.properties(data)
