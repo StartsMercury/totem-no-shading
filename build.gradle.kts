@@ -56,7 +56,7 @@ tasks.withType<ProcessResources> {
         "version" to Constants.VERSION,
         "version_java" to Constants.VERSION_JAVA,
         "version_game" to "26.1-alpha.2",
-	"version_minecraft" to Constants.VERSION_MINECRAFT,
+        "version_minecraft" to Constants.VERSION_MINECRAFT,
     )
 
     inputs.properties(data)
