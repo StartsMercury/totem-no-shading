@@ -25,6 +25,9 @@
 		"java": ">=${version_java}"
 	},
 	"recommends": {
+		"minecraft": "${version_game}"
+	},
+	"suggests": {
 		"minecraft": "${version_minecraft}"
 	}
 }
