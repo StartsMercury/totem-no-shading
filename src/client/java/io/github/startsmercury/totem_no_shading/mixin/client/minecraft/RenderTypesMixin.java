@@ -11,8 +11,17 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(RenderTypes.class)
 public abstract class RenderTypesMixin {
     static {
+        TotemNoShadingImpl.ITEM_CUTOUT = Util.memoize(texture -> {
+            final var state = RenderSetup.builder(TotemNoShadingImpl.RENDERPIPELINE_ITEM_CUTOUT)
+                .withTexture("Sampler0", texture)
+                .useLightmap()
+                .affectsCrumbling()
+                .setOutline(RenderSetup.OutlineProperty.AFFECTS_OUTLINE)
+                .createRenderSetup();
+            return RenderType.create("item_cutout", state);
+        });
         TotemNoShadingImpl.ITEM_TRANSLUCENT = Util.memoize(texture -> {
-            final var setup = RenderSetup.builder(TotemNoShadingImpl.RENDERPIPELINE_ITEM_TRANSLUCENT)
+            final var state = RenderSetup.builder(TotemNoShadingImpl.RENDERPIPELINE_ITEM_TRANSLUCENT)
                 .withTexture("Sampler0", texture)
                 .setOutputTarget(OutputTarget.ITEM_ENTITY_TARGET)
                 .useLightmap()
@@ -20,7 +29,7 @@ public abstract class RenderTypesMixin {
                 .sortOnUpload()
                 .setOutline(RenderSetup.OutlineProperty.AFFECTS_OUTLINE)
                 .createRenderSetup();
-            return RenderType.create("item_translucent", setup);
+            return RenderType.create("item_translucent", state);
         });
     }
 }

@@ -10,7 +10,7 @@ public class SheetsMixin {
     static {
         @SuppressWarnings("deprecation")
         final var textureAtlas = TextureAtlas.LOCATION_ITEMS;
-        TotemNoShadingImpl.TRANSLUCENT_ITEM_SHEET =
-            TotemNoShadingImpl.itemTranslucent(textureAtlas);
+        TotemNoShadingImpl.CUTOUT_ITEM_SHEET = TotemNoShadingImpl.itemCutout(textureAtlas);
+        TotemNoShadingImpl.TRANSLUCENT_ITEM_SHEET = TotemNoShadingImpl.itemTranslucent(textureAtlas);
     }
 }

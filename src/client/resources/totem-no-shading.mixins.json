@@ -3,7 +3,7 @@
   "package": "io.github.startsmercury.totem_no_shading.mixin.client",
   "compatibilityLevel": "JAVA_25",
   "client": [
-    "minecraft.BlockModelWrapperMixin",
+    "minecraft.BlockModelWrapper$UnbakedMixin",
     "minecraft.RenderPipelinesMixin",
     "minecraft.RenderTypesMixin",
     "minecraft.ShaderManagerMixin",

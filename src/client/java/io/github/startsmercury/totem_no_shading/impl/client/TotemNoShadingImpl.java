@@ -7,6 +7,8 @@ import net.minecraft.resources.Identifier;
 import java.util.function.Function;
 
 public class TotemNoShadingImpl {
+    public static final Identifier TARGET_MODEL = Identifier.withDefaultNamespace("item/totem_of_undying");
+
 	private static boolean enabled = true;
 
 	public static boolean isEnabled() {
@@ -24,17 +26,29 @@ public class TotemNoShadingImpl {
 		"shaders/core/item.vsh"
 		);
 
+    public static RenderPipeline RENDERPIPELINE_ITEM_CUTOUT;
+
 	public static RenderPipeline RENDERPIPELINE_ITEM_TRANSLUCENT;
 
-	public static Function<Identifier, RenderType> ITEM_TRANSLUCENT;
+	public static Function<Identifier, RenderType> ITEM_CUTOUT;
 
-	public static RenderType itemTranslucent(
-		final Identifier resourceLocation
-	) {
+    public static Function<Identifier, RenderType> ITEM_TRANSLUCENT;
+
+    public static RenderType itemCutout(final Identifier resourceLocation) {
+        return ITEM_CUTOUT.apply(resourceLocation);
+    }
+
+	public static RenderType itemTranslucent(final Identifier resourceLocation) {
 		return ITEM_TRANSLUCENT.apply(resourceLocation);
 	}
 
+    public static RenderType CUTOUT_ITEM_SHEET;
+
 	public static RenderType TRANSLUCENT_ITEM_SHEET;
+
+	public static RenderType cutoutItemSheet() {
+		return CUTOUT_ITEM_SHEET;
+	}
 
 	public static RenderType translucentItemSheet() {
 		return TRANSLUCENT_ITEM_SHEET;

@@ -32,11 +32,67 @@ public abstract class RenderPipelinesMixin {
         ),
         slice = @Slice(from = @At(
             value = "CONSTANT",
+            args = "stringValue=pipeline/item_cutout"
+        )),
+	remap = false
+    )
+    private static RenderPipeline createCustomItemCutout(
+        final RenderPipeline.Builder builder,
+        final Operation<RenderPipeline> original
+    ) {
+        final var pipeline = original.call(builder);
+
+        final var customVertexShader = pipeline
+            .getVertexShader()
+            .withPath(path -> path + TotemNoShadingImpl.CUSTOM_SHADER_SUFFIX);
+        TotemNoShadingImpl.RENDERPIPELINE_ITEM_CUTOUT = builder
+            .withVertexShader(customVertexShader)
+            .build();
+
+        return pipeline;
+    }
+
+    @Inject(
+        method = "<clinit>",
+        at = @At(
+            value = "INVOKE",
+            shift = At.Shift.AFTER,
+            target = """
+                Lnet/minecraft/client/renderer/RenderPipelines;  \
+                register (                                       \
+                    Lcom/mojang/blaze3d/pipeline/RenderPipeline; \
+                ) Lcom/mojang/blaze3d/pipeline/RenderPipeline;   \
+            """,
+            ordinal = 0
+        ),
+        slice = @Slice(from = @At(
+            value = "CONSTANT",
+            args = "stringValue=pipeline/item_cutout"
+        ))
+    )
+    private static void registerCustomItemCutout(final CallbackInfo callback) {
+        TotemNoShadingImpl.RENDERPIPELINE_ITEM_CUTOUT =
+            register(TotemNoShadingImpl.RENDERPIPELINE_ITEM_CUTOUT);
+    }
+
+    @WrapOperation(
+        method = "<clinit>",
+        at = @At(
+            value = "INVOKE",
+            target = """
+                Lcom/mojang/blaze3d/pipeline/RenderPipeline$Builder; \
+                build (                                              \
+                ) Lcom/mojang/blaze3d/pipeline/RenderPipeline;       \
+            """,
+            ordinal = 0
+        ),
+        slice = @Slice(from = @At(
+            value = "CONSTANT",
             args = "stringValue=pipeline/item_translucent"
         )),
 	remap = false
     )
-    private static RenderPipeline createCustom(
+    private static RenderPipeline createCustomItemTranslucent(
         final RenderPipeline.Builder builder,
         final Operation<RenderPipeline> original
     ) {
@@ -70,7 +126,7 @@ public abstract class RenderPipelinesMixin {
             args = "stringValue=pipeline/item_translucent"
         ))
     )
-    private static void registerCustom(final CallbackInfo callback) {
+    private static void registerCustomItemTranslucent(final CallbackInfo callback) {
         TotemNoShadingImpl.RENDERPIPELINE_ITEM_TRANSLUCENT =
             register(TotemNoShadingImpl.RENDERPIPELINE_ITEM_TRANSLUCENT);
     }
