@@ -11,6 +11,6 @@ public class SheetsMixin {
         @SuppressWarnings("deprecation")
         final var textureAtlas = TextureAtlas.LOCATION_ITEMS;
         TotemNoShadingImpl.TRANSLUCENT_ITEM_SHEET =
-            TotemNoShadingImpl.itemEntityTranslucentCull(textureAtlas);
+            TotemNoShadingImpl.itemTranslucent(textureAtlas);
     }
 }

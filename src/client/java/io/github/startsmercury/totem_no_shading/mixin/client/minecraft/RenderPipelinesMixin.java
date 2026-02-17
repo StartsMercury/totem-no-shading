@@ -32,7 +32,7 @@ public abstract class RenderPipelinesMixin {
         ),
         slice = @Slice(from = @At(
             value = "CONSTANT",
-            args = "stringValue=pipeline/item_entity_translucent_cull"
+            args = "stringValue=pipeline/item_translucent"
         )),
 	remap = false
     )
@@ -45,7 +45,7 @@ public abstract class RenderPipelinesMixin {
         final var customVertexShader = pipeline
             .getVertexShader()
             .withPath(path -> path + TotemNoShadingImpl.CUSTOM_SHADER_SUFFIX);
-        TotemNoShadingImpl.RENDERPIPELINE_ITEM_ENTITY_TRANSLUCENT_CULL = builder
+        TotemNoShadingImpl.RENDERPIPELINE_ITEM_TRANSLUCENT = builder
             .withVertexShader(customVertexShader)
             .build();
 
@@ -67,11 +67,11 @@ public abstract class RenderPipelinesMixin {
         ),
         slice = @Slice(from = @At(
             value = "CONSTANT",
-            args = "stringValue=pipeline/item_entity_translucent_cull"
+            args = "stringValue=pipeline/item_translucent"
         ))
     )
     private static void registerCustom(final CallbackInfo callback) {
-        TotemNoShadingImpl.RENDERPIPELINE_ITEM_ENTITY_TRANSLUCENT_CULL =
-            register(TotemNoShadingImpl.RENDERPIPELINE_ITEM_ENTITY_TRANSLUCENT_CULL);
+        TotemNoShadingImpl.RENDERPIPELINE_ITEM_TRANSLUCENT =
+            register(TotemNoShadingImpl.RENDERPIPELINE_ITEM_TRANSLUCENT);
     }
 }

@@ -21,17 +21,17 @@ public class TotemNoShadingImpl {
 
 	public static final Identifier TARGET_VSH_SHADER =
 		Identifier.withDefaultNamespace(
-		"shaders/core/rendertype_item_entity_translucent_cull.vsh"
+		"shaders/core/item.vsh"
 		);
 
-	public static RenderPipeline RENDERPIPELINE_ITEM_ENTITY_TRANSLUCENT_CULL;
+	public static RenderPipeline RENDERPIPELINE_ITEM_TRANSLUCENT;
 
-	public static Function<Identifier, RenderType> ITEM_ENTITY_TRANSLUCENT_CULL;
+	public static Function<Identifier, RenderType> ITEM_TRANSLUCENT;
 
-	public static RenderType itemEntityTranslucentCull(
+	public static RenderType itemTranslucent(
 		final Identifier resourceLocation
 	) {
-		return ITEM_ENTITY_TRANSLUCENT_CULL.apply(resourceLocation);
+		return ITEM_TRANSLUCENT.apply(resourceLocation);
 	}
 
 	public static RenderType TRANSLUCENT_ITEM_SHEET;
