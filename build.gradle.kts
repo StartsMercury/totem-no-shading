@@ -48,7 +48,7 @@ dependencies {
     minecraft("com.mojang:minecraft:${Constants.VERSION_MINECRAFT}")
     implementation("net.fabricmc:fabric-loader:0.19.5")
 
-    // compileOnly("maven.modrinth:iris:1.10.5+1.21.11-fabric")
+    compileOnly("maven.modrinth:iris:1.11.3+26.1-fabric")
 }
 
 tasks.withType<ProcessResources> {

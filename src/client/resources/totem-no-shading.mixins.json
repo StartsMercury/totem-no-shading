@@ -3,6 +3,7 @@
   "package": "io.github.startsmercury.totem_no_shading.mixin.client",
   "compatibilityLevel": "JAVA_25",
   "client": [
+    "iris.IrisConfigMixin",
     "minecraft.CuboidItemModelWrapper$UnbakedMixin",
     "minecraft.RenderPipelinesMixin",
     "minecraft.RenderTypesMixin",
