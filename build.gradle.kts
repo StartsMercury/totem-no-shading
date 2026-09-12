@@ -2,7 +2,7 @@ object Constants {
     const val VERSION = "0.1.2"
 
     const val VERSION_JAVA = 25
-    const val VERSION_MINECRAFT = "26.1-snapshot-9"
+    const val VERSION_MINECRAFT = "26.1.2"
 }
 
 plugins {
@@ -24,7 +24,7 @@ java {
 }
 
 loom {
-    accessWidenerPath = file("src/client/resources/totem-no-shading.accesswidener")
+    accessWidenerPath = file("src/client/resources/totem-no-shading.classtweaker")
     runtimeOnlyLog4j = true
     splitEnvironmentSourceSets()
 
@@ -55,7 +55,7 @@ tasks.withType<ProcessResources> {
     val data = mapOf(
         "version" to Constants.VERSION,
         "version_java" to Constants.VERSION_JAVA,
-        "version_game" to "26.1-alpha.9",
+        "version_game" to "26.1.2",
         "version_minecraft" to Constants.VERSION_MINECRAFT,
     )
 

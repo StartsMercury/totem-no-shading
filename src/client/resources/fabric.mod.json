@@ -19,9 +19,9 @@
 	"mixins": [
 		"totem-no-shading.mixins.json"
 	],
-	"accessWidener": "totem-no-shading.accesswidener",
+	"accessWidener": "totem-no-shading.classtweaker",
 	"depends": {
-		"fabricloader": ">=0.18",
+		"fabricloader": ">=0.19",
 		"java": ">=${version_java}"
 	},
 	"recommends": {
